@@ -11,5 +11,5 @@ Website at https://bs.dist0rtion.com/
 - when you travel abroad and you miss German Bureaucracy
 - roleplaying in German playrooms for those with an Amt kink
 - exposure therapy for Ausländerbehördeangst
-- pre-Germany training for naive future Ausländer
+- pre-Germany training for naïve future Ausländer
 - budget theme birthday party for unloved child
