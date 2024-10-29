@@ -69,8 +69,8 @@ export function BackgroundMusicPlayer() {
           Cough Frequency (ms):
           <input
             type="range"
-            min="1000"
-            max="10000"
+            min="15000"
+            max="20000"
             value={coughFrequency}
             onChange={(e) => setCoughFrequency(Number(e.target.value))}
           />
@@ -82,8 +82,8 @@ export function BackgroundMusicPlayer() {
           Sneeze Frequency (ms):
           <input
             type="range"
-            min="1000"
-            max="10000"
+            min="15000"
+            max="20000"
             value={sneezeFrequency}
             onChange={(e) => setSneezeFrequency(Number(e.target.value))}
           />
@@ -95,8 +95,8 @@ export function BackgroundMusicPlayer() {
           Door Frequency (ms):
           <input
             type="range"
-            min="1000"
-            max="10000"
+            min="15000"
+            max="20000"
             value={doorFrequency}
             onChange={(e) => setDoorFrequency(Number(e.target.value))}
           />
