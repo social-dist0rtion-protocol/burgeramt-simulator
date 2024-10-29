@@ -9,13 +9,11 @@ type TerminType = {
 };
 
 export function TerminTable() {
-  const [array1, setArray1] = useState<TerminType[]>(generateTerminArray(6));
-  const [array2, setArray2] = useState<TerminType[]>(generateTerminArray(6));
+  const [termine, setTermine] = useState<TerminType[]>(generateTerminArray(12));
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setArray1((prevArray) => updateRandomElements(prevArray));
-      setArray2((prevArray) => updateRandomElements(prevArray));
+      setTermine((prev) => updateRandomElements(prev));
     }, 1000);
 
     return () => clearInterval(interval); // Cleanup on component unmount
@@ -23,8 +21,8 @@ export function TerminTable() {
 
   return (
     <div className={styles.c}>
-      <Table termine={array1} />
-      <Table termine={array2} />
+      <Table termine={termine.slice(0, 6)} />
+      <Table termine={termine.slice(-6)} />
     </div>
   );
 }
@@ -76,10 +74,15 @@ function generateSecureNumber(min: number, max: number): number {
 
 function generateTerminArray(size: number): TerminType[] {
   const array: TerminType[] = [];
+  const platzPool = Array.from({ length: 16 }, (_, i) => i + 1); // [1, 2, ..., 16]
 
   for (let i = 0; i < size; i++) {
     const number = generateSecureNumber(100000, 700000);
-    const platz = generateSecureNumber(1, 17); // Range for platz: 1 to 16
+
+    // Securely select a unique platz by picking a random index from the platzPool
+    const randomIndex = generateSecureNumber(0, platzPool.length);
+    const platz = platzPool.splice(randomIndex, 1)[0]; // Remove selected platz from the pool
+
     const timestamp = 0;
     array.push({ number, platz, timestamp });
   }
@@ -93,9 +96,27 @@ function updateRandomElements(array: TerminType[]) {
   if (shouldUpdate) {
     const randomIndex = generateSecureNumber(0, array.length);
 
+    // Create a set of all possible platz values
+    const allPlatzValues = new Set<number>(
+      Array.from({ length: 16 }, (_, i) => i + 1)
+    );
+
+    // Remove existing platz values in the array
+    array.forEach((item) => allPlatzValues.delete(item.platz));
+
+    // Convert the available platz values to an array
+    const availablePlatzValues = Array.from(allPlatzValues);
+
+    // Select a random platz from available values
+    const newPlatz =
+      availablePlatzValues[
+        generateSecureNumber(0, availablePlatzValues.length)
+      ];
+
+    // Update the selected item with a unique platz
     array[randomIndex] = {
       number: generateSecureNumber(100000, 700000),
-      platz: generateSecureNumber(1, 17),
+      platz: newPlatz,
       timestamp: Date.now(),
     };
   }
