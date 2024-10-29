@@ -9,5 +9,7 @@ Website at https://bs.dist0rtion.com/
 - background music to focus and study
 - lie to yourself and pretend you got an appointment at Bürgeramt
 - when you travel abroad and you miss German Bureaucracy
-- roleplaying in German playrooms for those with an amtkink
+- roleplaying in German playrooms for those with an Amt kink
 - exposure therapy for Ausländerbehördeangst
+- pre-Germany training for naive future Ausländer
+- budget theme birthday party for unloved child
