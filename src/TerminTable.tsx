@@ -96,18 +96,16 @@ function updateRandomElements(array: TerminType[]) {
   if (shouldUpdate) {
     const randomIndex = generateSecureNumber(0, array.length);
 
-    // Create a set of all possible platz values
-    const allPlatzValues = new Set<number>(
-      Array.from({ length: 16 }, (_, i) => i + 1)
+    // Create an array of all possible platz values
+    const allPlatzValues = Array.from({ length: 16 }, (_, i) => i + 1);
+
+    // Filter out the platz values that are already in use
+    const existingPlatzValues = array.map((item) => item.platz);
+    const availablePlatzValues = allPlatzValues.filter(
+      (platz) => !existingPlatzValues.includes(platz)
     );
 
-    // Remove existing platz values in the array
-    array.forEach((item) => allPlatzValues.delete(item.platz));
-
-    // Convert the available platz values to an array
-    const availablePlatzValues = Array.from(allPlatzValues);
-
-    // Select a random platz from available values
+    // Select a random platz from the available values
     const newPlatz =
       availablePlatzValues[
         generateSecureNumber(0, availablePlatzValues.length)
