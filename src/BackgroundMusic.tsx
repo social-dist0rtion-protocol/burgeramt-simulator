@@ -6,9 +6,9 @@ import doorSound from "./assets/door.m4a"; // Import the door sound
 
 export function BackgroundMusicPlayer() {
   const [audio] = useState(new Audio(backgroundMusic));
-  const [coughFrequency, setCoughFrequency] = useState(5000); // in milliseconds
-  const [sneezeFrequency, setSneezeFrequency] = useState(7000); // in milliseconds
-  const [doorFrequency, setDoorFrequency] = useState(8000); // in milliseconds
+  const [coughFrequency, setCoughFrequency] = useState(15000);
+  const [sneezeFrequency, setSneezeFrequency] = useState(17000);
+  const [doorFrequency, setDoorFrequency] = useState(18000);
 
   // Play background music
   useEffect(() => {
@@ -69,7 +69,7 @@ export function BackgroundMusicPlayer() {
           Cough Frequency (ms):
           <input
             type="range"
-            min="15000"
+            min="1000"
             max="20000"
             value={coughFrequency}
             onChange={(e) => setCoughFrequency(Number(e.target.value))}
@@ -82,7 +82,7 @@ export function BackgroundMusicPlayer() {
           Sneeze Frequency (ms):
           <input
             type="range"
-            min="15000"
+            min="1000"
             max="20000"
             value={sneezeFrequency}
             onChange={(e) => setSneezeFrequency(Number(e.target.value))}
@@ -95,7 +95,7 @@ export function BackgroundMusicPlayer() {
           Door Frequency (ms):
           <input
             type="range"
-            min="15000"
+            min="1000"
             max="20000"
             value={doorFrequency}
             onChange={(e) => setDoorFrequency(Number(e.target.value))}
