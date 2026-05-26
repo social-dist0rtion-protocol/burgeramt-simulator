@@ -1,5 +1,11 @@
 # Bürgeramt Simulator
 
+Part of the dist0rtion simulator suite:
+
+- Apple Support Simulator: [live](https://social-dist0rtion-protocol.github.io/apple-support-simulator/) · [repo](https://github.com/social-dist0rtion-protocol/apple-support-simulator)
+- Elster Simulator: [live](https://social-dist0rtion-protocol.github.io/elster-simulator/) · [repo](https://github.com/social-dist0rtion-protocol/elster-simulator)
+- **Bürgeramt Simulator**: [live](https://bs.dist0rtion.com/) · [repo](https://github.com/social-dist0rtion-protocol/burgeramt-simulator) *(this one)*
+
 First iteration on Bürgeramt Simulator.
 
 Website at https://bs.dist0rtion.com/
